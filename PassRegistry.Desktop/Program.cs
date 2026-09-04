@@ -1,1 +1,11 @@
-﻿Console.WriteLine("это журнал выдачи пропусков\nКаменский Илья");
+﻿using PassRegistry.Logic;
+
+var passSerivce = new PassService();
+
+Console.WriteLine($"Отобранные записи:");
+
+var activePasses = passSerivce.GetActive();
+foreach (var pass in activePasses)
+{
+    Console.WriteLine($"{pass.Id}: {pass.Visitor}");
+}
