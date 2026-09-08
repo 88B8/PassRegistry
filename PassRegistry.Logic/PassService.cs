@@ -1,13 +1,19 @@
-﻿using PassRegistry.Data;
-
-namespace PassRegistry.Logic;
+﻿namespace PassRegistry.Logic;
 
 /// <summary>
 /// Сервис работы с <see cref="Pass"/>
 /// </summary>
 public sealed class PassService
 {
-    private readonly PassRepository passRepository = new();
+    private readonly IPassRepository passRepository;
+
+    /// <summary>
+    /// ctor
+    /// </summary>
+    public PassService(IPassRepository passRepository)
+    {
+        this.passRepository = passRepository;
+    }
 
     /// <summary>
     /// Получить список активных <see cref="Pass"/>
