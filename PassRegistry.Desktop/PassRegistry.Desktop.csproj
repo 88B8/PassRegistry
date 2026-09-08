@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PassRegistry.Logic\PassRegistry.Logic.csproj" />
+    <ProjectReference Include="..\PassRegistry.Data\PassRegistry.Data.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

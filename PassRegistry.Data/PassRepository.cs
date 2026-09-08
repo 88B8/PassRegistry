@@ -1,31 +1,31 @@
-﻿namespace PassRegistry.Data;
+﻿using PassRegistry.Logic;
 
-/// <summary>
-/// Репозиторий работы с <see cref="Pass"/>
-/// </summary>
-public sealed class PassRepository
+namespace PassRegistry.Data;
+
+/// <inheritdoc cref="IPassRepository"/>
+public sealed class PassRepository : IPassRepository
 {
     private readonly List<Pass> items = [
-        new Pass{
+        new Pass
+        {
             Id = Guid.NewGuid(),
             Visitor = "Федя",
             IsValid = true,
         },
-        new Pass{
+        new Pass
+        {
             Id = Guid.NewGuid(),
             Visitor = "Петя",
             IsValid = true,
         },
-        new Pass{
+        new Pass
+        {
             Id = Guid.NewGuid(),
             Visitor = "Вася",
             IsValid = false,
         },
         ];
 
-    /// <summary>
-    /// Получить все сущности <see cref="Pass"/>
-    /// </summary>
-    public IReadOnlyCollection<Pass> GetAll()
+    IReadOnlyCollection<Pass> IPassRepository.GetAll()
         => items.AsReadOnly();
 }
